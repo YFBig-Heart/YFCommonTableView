@@ -25,6 +25,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setTableviewStyle];
 }
+
 #pragma mark 设置tableView的样式
 - (void)setTableviewStyle {
     self.tableView.delegate = self;
