@@ -6,9 +6,9 @@
 //  Copyright © 2018 yunfei. All rights reserved.
 //
 
-#import "UIFont+YFFont.h"
+#import "UIFont+yf_Font.h"
 
-@implementation UIFont (YFFont)
+@implementation UIFont (yf_Font)
 
 
 + (UIFont *)systemFontOfSize_6:(CGFloat)size
