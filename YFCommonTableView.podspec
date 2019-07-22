@@ -27,7 +27,7 @@ Pod::Spec.new do |spec|
   spec.author             = { "刘云飞" => "769544747@qq.com" }
 
   spec.platform     = :ios
-  spec.platform     = :ios, "8.0"
+  spec.platform     = :ios, "9.0"
 
 
 
@@ -35,7 +35,7 @@ Pod::Spec.new do |spec|
 
 
   spec.source_files  = "YFCommonTableView/**/*.{h,m}"
-  spec.resources    = 'Assets/*.png'
+  spec.resource    = 'Assets/*.png'
 
   spec.frameworks = "Foundation", "UIKit"
 
