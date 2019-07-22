@@ -35,7 +35,7 @@ Pod::Spec.new do |spec|
 
 
   spec.source_files  = "YFCommonTableView/**/*.{h,m}"
-  spec.resource    = 'Assets/*.png'
+  spec.resources    = 'Assets/*.png'
 
   spec.frameworks = "Foundation", "UIKit"
 
