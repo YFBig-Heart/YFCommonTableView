@@ -16,6 +16,7 @@
 //#import <SDWebImage/UIImageView+WebCache.h>
 //#import <SDWebImage/SDImageCache.h>
 #import "YFCommonTableView.h"
+#import "YFLoadImgManager.h"
 
 
 @interface UIView (yf_viewFrame)
@@ -90,12 +91,11 @@
         self.textLabel.textColor = [UIColor grayColor];
         self.detailTextLabel.textColor = [UIColor colorWithRed:34/255.0 green:34/255.0 blue:34/255.0 alpha:1.0];
         if(_accessoryArrow != nil){
-            _accessoryArrow.image = [UIImage imageNamed:@"rightArrow_gray"];
+            _accessoryArrow.image = [YFLoadImgManager yf_getImageWithName:@"rightArrow_gray"];
         }
     }else {
         if(_accessoryArrow != nil){
-
-            _accessoryArrow.image =[UIImage imageNamed:@"rightArrow_gray"];
+            _accessoryArrow.image = [YFLoadImgManager yf_getImageWithName:@"rightArrow_gray"];
         }
     }
 }
@@ -162,7 +162,7 @@
 
 - (UIImageView *)accessoryArrow {
     if (_accessoryArrow == nil) {
-        _accessoryArrow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rightArrow_gray"]];
+        _accessoryArrow = [[UIImageView alloc] initWithImage:[YFLoadImgManager yf_getImageWithName:@"rightArrow_gray"]];
     }
     return _accessoryArrow;
 }
@@ -182,7 +182,8 @@
 
 - (UIImageView *)selectImageView {
     if (_selectImageView == nil) {
-        _selectImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"msg_box_choose_before"]];
+        _selectImageView = [[UIImageView alloc] initWithImage:[YFLoadImgManager yf_getImageWithName:@"msg_box_choose_before"]];
+
         [self.contentView addSubview:_selectImageView];
         [_selectImageView sizeToFit];
         _selectImageView.right = 16;
@@ -195,9 +196,19 @@
     if ([self.item isKindOfClass:[YFUserSaveItem class]]) {
         YFUserSaveItem *itemSave = (YFUserSaveItem *)self.item;
         if (itemSave.isSelected) {
-            self.selectImageView.image = [UIImage imageNamed:itemSave.selectImageName];
+
+            if ([itemSave.selectImageName isEqualToString:@"login_select_dot"]) {
+                self.selectImageView.image = [YFLoadImgManager yf_getImageWithName:itemSave.selectImageName];
+            }else {
+                self.selectImageView.image = [UIImage imageNamed:itemSave.selectImageName];
+            }
+
         }else {
-            self.selectImageView.image = [UIImage imageNamed:itemSave.unSelectImageName];
+            if ([itemSave.selectImageName isEqualToString:@"login_unselect_dot"]) {
+                self.selectImageView.image = [YFLoadImgManager yf_getImageWithName:itemSave.unSelectImageName];
+            }else {
+               self.selectImageView.image = [UIImage imageNamed:itemSave.unSelectImageName];
+            }
         }
     }
 }

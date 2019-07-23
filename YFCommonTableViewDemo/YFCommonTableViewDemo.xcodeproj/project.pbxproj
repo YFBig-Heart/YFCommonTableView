@@ -22,6 +22,8 @@
 		3B026FE822E5CE2100349945 /* YFUserSaveItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B026FDD22E5CE2100349945 /* YFUserSaveItem.m */; };
 		3B026FE922E5CE2100349945 /* YFUserGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B026FE022E5CE2100349945 /* YFUserGroup.m */; };
 		3B026FEA22E5CE2100349945 /* YFUserItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B026FE122E5CE2100349945 /* YFUserItem.m */; };
+		3B026FED22E6A63E00349945 /* image.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3B026FEC22E6A63E00349945 /* image.bundle */; };
+		3B026FF122E6A89900349945 /* YFLoadImgManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B026FF022E6A89900349945 /* YFLoadImgManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,9 @@
 		3B026FDF22E5CE2100349945 /* YFCommonBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFCommonBaseController.h; sourceTree = "<group>"; };
 		3B026FE022E5CE2100349945 /* YFUserGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFUserGroup.m; sourceTree = "<group>"; };
 		3B026FE122E5CE2100349945 /* YFUserItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFUserItem.m; sourceTree = "<group>"; };
+		3B026FEC22E6A63E00349945 /* image.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = image.bundle; sourceTree = "<group>"; };
+		3B026FEF22E6A89900349945 /* YFLoadImgManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFLoadImgManager.h; sourceTree = "<group>"; };
+		3B026FF022E6A89900349945 /* YFLoadImgManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFLoadImgManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +110,7 @@
 			children = (
 				3B026FD822E5CE2100349945 /* UIFont+yf_Font.h */,
 				3B026FCF22E5CE2100349945 /* UIFont+yf_Font.m */,
+				3B026FEE22E6A7AD00349945 /* Resources */,
 				3B026FDF22E5CE2100349945 /* YFCommonBaseController.h */,
 				3B026FD222E5CE2100349945 /* YFCommonBaseController.m */,
 				3B026FDE22E5CE2100349945 /* YFCommonTableView.h */,
@@ -122,9 +128,19 @@
 				3B026FD922E5CE2100349945 /* YFUserLabelItem.m */,
 				3B026FD322E5CE2100349945 /* YFUserSaveItem.h */,
 				3B026FDD22E5CE2100349945 /* YFUserSaveItem.m */,
+				3B026FEF22E6A89900349945 /* YFLoadImgManager.h */,
+				3B026FF022E6A89900349945 /* YFLoadImgManager.m */,
 			);
 			path = YFCommonTableView;
 			sourceTree = SOURCE_ROOT;
+		};
+		3B026FEE22E6A7AD00349945 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3B026FEC22E6A63E00349945 /* image.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -186,6 +202,7 @@
 				3B026FC522E5CDD300349945 /* LaunchScreen.storyboard in Resources */,
 				3B026FC222E5CDD300349945 /* Assets.xcassets in Resources */,
 				3B026FC022E5CDD200349945 /* Main.storyboard in Resources */,
+				3B026FED22E6A63E00349945 /* image.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +220,7 @@
 				3B026FBD22E5CDD200349945 /* ViewController.m in Sources */,
 				3B026FC822E5CDD300349945 /* main.m in Sources */,
 				3B026FE322E5CE2100349945 /* YFUserCenterCell.m in Sources */,
+				3B026FF122E6A89900349945 /* YFLoadImgManager.m in Sources */,
 				3B026FE822E5CE2100349945 /* YFUserSaveItem.m in Sources */,
 				3B026FEA22E5CE2100349945 /* YFUserItem.m in Sources */,
 				3B026FE522E5CE2100349945 /* YFUserArrowItem.m in Sources */,
