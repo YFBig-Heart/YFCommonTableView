@@ -18,6 +18,8 @@
 #import "YFCommonTableView.h"
 #import "YFLoadImgManager.h"
 
+#define kyfline_LightGrayBgColor [UIColor colorWithRed:((float)((0xEDF1F2 & 0xFF0000) >> 16))/255.0 green:((float)((0xEDF1F2 & 0xFF00) >> 8))/255.0 blue:((float)(0xEDF1F2 & 0xFF))/255.0 alpha:1.0]
+
 
 @interface UIView (yf_viewFrame)
 
@@ -243,7 +245,7 @@
 - (UIView *)lineView {
     if(_lineView == nil) {
         _lineView = [[UIView alloc] init];
-        _lineView.backgroundColor = kLightGrayBgColor;
+        _lineView.backgroundColor = kyfline_LightGrayBgColor;
         _lineView.hidden = YES;
         [self.contentView addSubview:_lineView];
     }
@@ -253,7 +255,7 @@
 - (UIView *)bottomLineView {
     if (_bottomLineView == nil) {
         _bottomLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 50 - 1, [UIScreen mainScreen].bounds.size.width, 1.0)];
-        _bottomLineView.backgroundColor = kLightGrayBgColor;
+        _bottomLineView.backgroundColor = kyfline_LightGrayBgColor;
         [self.contentView addSubview:_bottomLineView];
     }
     return _bottomLineView;
@@ -262,7 +264,7 @@
 - (UIView *)topLineView {
     if (_topLineView == nil) {
         _topLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 1)];
-        _topLineView.backgroundColor = kLightGrayBgColor;
+        _topLineView.backgroundColor = kyfline_LightGrayBgColor;
         [self.contentView addSubview:_topLineView];
     }
     return _topLineView;

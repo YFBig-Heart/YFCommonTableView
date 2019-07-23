@@ -11,6 +11,8 @@
 
 #define kSectionHeadViewHeight 8
 
+#define kyfbgWhite_LightGrayBgColor [UIColor colorWithRed:((float)((0xEDF1F2 & 0xFF0000) >> 16))/255.0 green:((float)((0xEDF1F2 & 0xFF00) >> 8))/255.0 blue:((float)(0xEDF1F2 & 0xFF))/255.0 alpha:1.0]
+
 @interface YFCommonBaseController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -33,8 +35,6 @@
     // 下面两个人一设置一个就可以
     self.tableView.sectionFooterHeight = 0;
     self.tableView.sectionHeaderHeight = 0;
-    // 设置背景色
-    self.tableView.backgroundColor = kLightGrayBgColor;
     // 去掉分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
@@ -102,7 +102,7 @@
         label.textColor = [UIColor colorWithRed:((float)((0xaaaaaa & 0xFF0000) >> 16))/255.0 green:((float)((0xaaaaaa & 0xFF00) >> 8))/255.0 blue:((float)(0xaaaaaa & 0xFF))/255.0 alpha:1.0];
         label.text = group.headerTitle;
         [headView addSubview:label];
-        headView.backgroundColor = kLightGrayBgColor;
+        headView.backgroundColor = kyfbgWhite_LightGrayBgColor;
         return headView;
     }else {
         return [[UIView alloc] init];
