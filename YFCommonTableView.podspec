@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
   
   spec.name         = "YFCommonTableView"
-  spec.version      = "1.0.1"
+  spec.version      = "1.0.2"
   spec.summary      = "A  user set mode Tbaleview commonly used in iOS projects"
 
   spec.description  = <<-DESC
@@ -34,8 +34,8 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => "https://github.com/YFBig-Heart/YFCommonTableView.git", :tag => "#{spec.version}" }
 
 
-  spec.source_files  = "YFCommonTableView/**/*.{h,m}"
-  s.resource         = "YFCommonTableView/image.bundle"
+  spec.source_files  = "YFCommonTableViewDemo/YFCommonTableView/**/*.{h,m}"
+  spec.resource      = "YFCommonTableViewDemo/YFCommonTableView/image.bundle"
 
   spec.frameworks = "Foundation", "UIKit"
 
