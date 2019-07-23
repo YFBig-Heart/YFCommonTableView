@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
   
   spec.name         = "YFCommonTableView"
-  spec.version      = "1.0.1"
+  spec.version      = "1.0.2"
   spec.summary      = "A  user set mode Tbaleview commonly used in iOS projects"
 
   spec.description  = <<-DESC
