@@ -1,14 +1,14 @@
 //
-//  YFUserGroup.m
+//  YFCommonTGroup.m
 //  CoolTennisBall
 //
 //  Created by Coollang on 16/8/25.
 //  Copyright © 2016年 CoolLang. All rights reserved.
 //
 
-#import "YFUserGroup.h"
+#import "YFCommonTGroup.h"
 
-@implementation YFUserGroup
+@implementation YFCommonTGroup
 - (instancetype)init {
     if (self = [super init]) {
         self.headHeight = -0.001;

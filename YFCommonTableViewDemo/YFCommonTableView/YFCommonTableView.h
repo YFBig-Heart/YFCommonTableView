@@ -9,14 +9,14 @@
 #ifndef YFCommonTableView_h
 #define YFCommonTableView_h
 
-#import "YFUserCenterCell.h"
-#import "YFUserItem.h"
-#import "YFUserGroup.h"
-#import "YFUserArrowItem.h"
-#import "YFUserLabelItem.h"
-#import "YFUserImageItem.h"
-#import "YFUserSaveItem.h"
-#import "YFCommonBaseController.h"
+#import "YFCommonTableCell.h"
+#import "YFCommonTItem.h"
+#import "YFCommonTGroup.h"
+#import "YFCommonArrowItem.h"
+#import "YFCommonTLabelItem.h"
+#import "YFCommonTImageItem.h"
+#import "YFCommonTSaveItem.h"
+#import "YFCommonBaseTableVc.h"
 
 
 #endif /* YFCommonTableView_h */

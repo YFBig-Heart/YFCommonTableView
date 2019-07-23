@@ -1,14 +1,14 @@
 //
-//  YFUserLabelItem.h
+//  YFCommonTLabelItem.h
 //  CoolTennisBall
 //
 //  Created by Coollang on 16/8/29.
 //  Copyright © 2016年 CoolLang. All rights reserved.
 //
 
-#import "YFUserItem.h"
+#import "YFCommonTItem.h"
 
-@interface YFUserLabelItem : YFUserItem
+@interface YFCommonTLabelItem : YFCommonTItem
 // label 中的值
 @property (nonatomic, copy)NSString *labelText;
 

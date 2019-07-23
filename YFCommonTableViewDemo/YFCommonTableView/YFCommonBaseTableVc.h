@@ -1,5 +1,5 @@
 //
-//  YFCommonBaseController.h
+//  YFCommonBaseTableVc.h
 //  Petcome
 //
 //  Created by petcome on 2018/12/28.
@@ -7,17 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YFUserCenterCell.h"
-#import "YFUserItem.h"
-#import "YFUserGroup.h"
-#import "YFUserArrowItem.h"
-#import "YFUserLabelItem.h"
-#import "YFUserImageItem.h"
-#import "YFUserSaveItem.h"
+#import "YFCommonTableCell.h"
+#import "YFCommonTItem.h"
+#import "YFCommonTGroup.h"
+#import "YFCommonArrowItem.h"
+#import "YFCommonTLabelItem.h"
+#import "YFCommonTImageItem.h"
+#import "YFCommonTSaveItem.h"
 NS_ASSUME_NONNULL_BEGIN
 
 
-@interface YFCommonBaseController : UIViewController
+@interface YFCommonBaseTableVc : UIViewController
 
 @property (nonatomic, strong)NSMutableArray *groups;
 

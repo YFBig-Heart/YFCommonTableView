@@ -1,18 +1,18 @@
 //
-//  YFUserImageItem.m
+//  YFCommonTImageItem.m
 //  CoolTennisBall
 //
 //  Created by Coollang on 16/8/29.
 //  Copyright © 2016年 CoolLang. All rights reserved.
 //
 
-#import "YFUserImageItem.h"
+#import "YFCommonTImageItem.h"
 
-@implementation YFUserImageItem
+@implementation YFCommonTImageItem
 
 + (instancetype)initWithTitle:(NSString *)title andImage:(UIImage *)image {
     
-    YFUserImageItem *item = [self itemWithTitle:title];
+    YFCommonTImageItem *item = [self itemWithTitle:title];
     
     item.image = image;
     

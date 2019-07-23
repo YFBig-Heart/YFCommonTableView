@@ -1,5 +1,5 @@
 //
-//  YFUserGroup.h
+//  YFCommonTGroup.h
 //  CoolTennisBall
 //
 //  Created by Coollang on 16/8/25.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YFUserGroup : NSObject
+@interface YFCommonTGroup : NSObject
 
 // 所有的Item
 @property (nonatomic, strong)NSMutableArray *items;

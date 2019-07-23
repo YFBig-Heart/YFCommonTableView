@@ -1,5 +1,5 @@
 //
-//  YFUserItem.h
+//  YFCommonTItem.h
 //  CoolTennisBall
 //
 //  Created by Coollang on 16/8/25.
@@ -13,7 +13,7 @@ typedef enum : NSUInteger {
     kCellStateUnenable, // 失效样式
 } kCellState;
 
-@interface YFUserItem : NSObject
+@interface YFCommonTItem : NSObject
 
 /** 图片名称 */
 @property (nonatomic, copy)NSString *icon;
@@ -43,7 +43,7 @@ typedef enum : NSUInteger {
 /**
  *  点击执行的block
  */
-@property (nonatomic, copy) void (^block)(YFUserItem *itemT,NSIndexPath *indexpath);
+@property (nonatomic, copy) void (^block)(YFCommonTItem *itemT,NSIndexPath *indexpath);
 
 - (instancetype)initWithTitle:(NSString *)title;
 

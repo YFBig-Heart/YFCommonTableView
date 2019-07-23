@@ -1,14 +1,14 @@
 //
-//  YFUserArrowItem.h
+//  YFCommonArrowItem.h
 //  CoolTennisBall
 //
 //  Created by Coollang on 16/8/25.
 //  Copyright © 2016年 CoolLang. All rights reserved.
 //
 
-#import "YFUserItem.h"
+#import "YFCommonTItem.h"
 
-@interface YFUserArrowItem : YFUserItem
+@interface YFCommonArrowItem : YFCommonTItem
 
 /**
  *  要跳转的控制器

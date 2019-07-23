@@ -1,22 +1,22 @@
 //
-//  YFUserCenterCell.m
+//  YFCommonTableCell.m
 //  CoolTennisBall
 //
 //  Created by Coollang on 16/8/25.
 //  Copyright © 2016年 CoolLang. All rights reserved.
 //
 
-#import "YFUserCenterCell.h"
-#import "YFUserItem.h"
-#import "YFUserArrowItem.h"
+#import "YFCommonTableCell.h"
+#import "YFCommonTItem.h"
+#import "YFCommonArrowItem.h"
 #import "UIFont+yf_Font.h"
-#import "YFUserSaveItem.h"
-#import "YFUserLabelItem.h"
-#import "YFUserImageItem.h"
+#import "YFCommonTSaveItem.h"
+#import "YFCommonTLabelItem.h"
+#import "YFCommonTImageItem.h"
 //#import <SDWebImage/UIImageView+WebCache.h>
 //#import <SDWebImage/SDImageCache.h>
 #import "YFCommonTableView.h"
-#import "YFLoadImgManager.h"
+#import "YFCommonTableView_loadImg.h"
 
 #define kyfline_LightGrayBgColor [UIColor colorWithRed:((float)((0xEDF1F2 & 0xFF0000) >> 16))/255.0 green:((float)((0xEDF1F2 & 0xFF00) >> 8))/255.0 blue:((float)(0xEDF1F2 & 0xFF))/255.0 alpha:1.0]
 
@@ -38,7 +38,7 @@
 
 @end
 
-@interface YFUserCenterCell ()
+@interface YFCommonTableCell ()
 
 // 开关
 @property (nonatomic, strong) UISwitch *accessorySwitch;
@@ -59,15 +59,15 @@
 
 @end
 
-@implementation YFUserCenterCell
+@implementation YFCommonTableCell
 
 
 + (instancetype)settingViewCellTableView:(UITableView *)tableview withStyle:(UITableViewCellStyle)style {
     static NSString *ID = @"setting";
-    YFUserCenterCell *cell = [tableview dequeueReusableCellWithIdentifier:ID];
+    YFCommonTableCell *cell = [tableview dequeueReusableCellWithIdentifier:ID];
     
     if (cell == nil) {
-        cell = [[YFUserCenterCell alloc] initWithStyle:style reuseIdentifier:ID];
+        cell = [[YFCommonTableCell alloc] initWithStyle:style reuseIdentifier:ID];
     }
     
     return cell;
@@ -89,19 +89,19 @@
     self.detailTextLabel.numberOfLines = 0;
     
     if (_item.cellState == kCellStateUnenable) {
-        self.imageView.image = [YFUserCenterCell image:[UIImage imageNamed:_item.icon] WithTintColor:[UIColor grayColor] blendMode:kCGBlendModeSoftLight alpha:1.0];
+        self.imageView.image = [YFCommonTableCell image:[UIImage imageNamed:_item.icon] WithTintColor:[UIColor grayColor] blendMode:kCGBlendModeSoftLight alpha:1.0];
         self.textLabel.textColor = [UIColor grayColor];
         self.detailTextLabel.textColor = [UIColor colorWithRed:34/255.0 green:34/255.0 blue:34/255.0 alpha:1.0];
         if(_accessoryArrow != nil){
-            _accessoryArrow.image = [YFLoadImgManager yf_getImageWithName:@"rightArrow_gray"];
+            _accessoryArrow.image = [YFCommonTableView_loadImg yf_getImageWithName:@"rightArrow_gray"];
         }
     }else {
         if(_accessoryArrow != nil){
-            _accessoryArrow.image = [YFLoadImgManager yf_getImageWithName:@"rightArrow_gray"];
+            _accessoryArrow.image = [YFCommonTableView_loadImg yf_getImageWithName:@"rightArrow_gray"];
         }
     }
 }
-- (void)setItem:(YFUserItem *)item {
+- (void)setItem:(YFCommonTItem *)item {
     _item = item;
     // 设置数据
     if(item.icon) {
@@ -109,12 +109,12 @@
         self.imageView.image = image;
     }
     // 如果是开关就设置成不能被选中
-    self.selectionStyle = [item isKindOfClass:[YFUserLabelItem class]] ? UITableViewCellSelectionStyleNone : UITableViewCellSelectionStyleDefault;
+    self.selectionStyle = [item isKindOfClass:[YFCommonTLabelItem class]] ? UITableViewCellSelectionStyleNone : UITableViewCellSelectionStyleDefault;
    
     self.textLabel.text = item.title;
     self.detailTextLabel.text = item.subTitle;
     
-    if ([item isKindOfClass:[YFUserArrowItem class]]) {
+    if ([item isKindOfClass:[YFCommonArrowItem class]]) {
         _accessoryArrow.hidden = NO;
         self.accessoryView = [self accessoryArrow];
     }else {
@@ -125,8 +125,8 @@
             self.accessoryArrow = nil;
         }
     }
-    if ([item isKindOfClass:[YFUserSaveItem class]]){
-        YFUserSaveItem *itemSave = (YFUserSaveItem *)item;
+    if ([item isKindOfClass:[YFCommonTSaveItem class]]){
+        YFCommonTSaveItem *itemSave = (YFCommonTSaveItem *)item;
         [self updateSelectImageView];
         [itemSave addObserver:self forKeyPath:@"isSelected" options:NSKeyValueObservingOptionNew context:nil];
     }else {
@@ -135,9 +135,9 @@
             _selectImageView = nil;
         }
     }
-    if ([item isKindOfClass:[YFUserLabelItem class]]){
+    if ([item isKindOfClass:[YFCommonTLabelItem class]]){
         // 给label赋值
-        YFUserLabelItem *itemLabel = (YFUserLabelItem *)item;
+        YFCommonTLabelItem *itemLabel = (YFCommonTLabelItem *)item;
         self.accessoryLabel.text = itemLabel.labelText;
     }else {
         if (_accessoryLabel != nil) {
@@ -146,9 +146,9 @@
         }
     }
     
-    if ([item isKindOfClass:[YFUserImageItem class]]){
+    if ([item isKindOfClass:[YFCommonTImageItem class]]){
         [self rightImageView];
-        YFUserImageItem *itemImage = (YFUserImageItem *)item;
+        YFCommonTImageItem *itemImage = (YFCommonTImageItem *)item;
         self.rightImageView.image = itemImage.image;
         _rightImageView.hidden = NO;
 
@@ -164,7 +164,7 @@
 
 - (UIImageView *)accessoryArrow {
     if (_accessoryArrow == nil) {
-        _accessoryArrow = [[UIImageView alloc] initWithImage:[YFLoadImgManager yf_getImageWithName:@"rightArrow_gray"]];
+        _accessoryArrow = [[UIImageView alloc] initWithImage:[YFCommonTableView_loadImg yf_getImageWithName:@"rightArrow_gray"]];
     }
     return _accessoryArrow;
 }
@@ -184,7 +184,7 @@
 
 - (UIImageView *)selectImageView {
     if (_selectImageView == nil) {
-        _selectImageView = [[UIImageView alloc] initWithImage:[YFLoadImgManager yf_getImageWithName:@"msg_box_choose_before"]];
+        _selectImageView = [[UIImageView alloc] initWithImage:[YFCommonTableView_loadImg yf_getImageWithName:@"msg_box_choose_before"]];
 
         [self.contentView addSubview:_selectImageView];
         [_selectImageView sizeToFit];
@@ -195,19 +195,19 @@
 }
 
 - (void)updateSelectImageView {
-    if ([self.item isKindOfClass:[YFUserSaveItem class]]) {
-        YFUserSaveItem *itemSave = (YFUserSaveItem *)self.item;
+    if ([self.item isKindOfClass:[YFCommonTSaveItem class]]) {
+        YFCommonTSaveItem *itemSave = (YFCommonTSaveItem *)self.item;
         if (itemSave.isSelected) {
 
             if ([itemSave.selectImageName isEqualToString:@"login_select_dot"]) {
-                self.selectImageView.image = [YFLoadImgManager yf_getImageWithName:itemSave.selectImageName];
+                self.selectImageView.image = [YFCommonTableView_loadImg yf_getImageWithName:itemSave.selectImageName];
             }else {
                 self.selectImageView.image = [UIImage imageNamed:itemSave.selectImageName];
             }
 
         }else {
             if ([itemSave.selectImageName isEqualToString:@"login_unselect_dot"]) {
-                self.selectImageView.image = [YFLoadImgManager yf_getImageWithName:itemSave.unSelectImageName];
+                self.selectImageView.image = [YFCommonTableView_loadImg yf_getImageWithName:itemSave.unSelectImageName];
             }else {
                self.selectImageView.image = [UIImage imageNamed:itemSave.unSelectImageName];
             }
@@ -223,8 +223,8 @@
 }
 
 - (void)dealloc {
-//    YFLog(@"YFUserCenterCellDealloc");
-    if ([self.item isKindOfClass:[YFUserSaveItem class]]) {
+//    YFLog(@"YFCommonTableCellDealloc");
+    if ([self.item isKindOfClass:[YFCommonTSaveItem class]]) {
        [self.item removeObserver:self forKeyPath:@"isSelected"];
     }
 }
@@ -291,8 +291,8 @@
     self.lineView.top = self.bounds.size.height - 1;
     self.lineView.width = self.bounds.size.width;
     self.lineView.height = 1;
-    if ([self.item isKindOfClass:[YFUserImageItem class]]) {
-        YFUserImageItem *imageItem = (YFUserImageItem *)self.item;
+    if ([self.item isKindOfClass:[YFCommonTImageItem class]]) {
+        YFCommonTImageItem *imageItem = (YFCommonTImageItem *)self.item;
         _rightImageView.frame = imageItem.imageFrame;
         [_rightImageView sizeToFit];
         if (imageItem.imageFrame.size.width+imageItem.imageFrame.size.height == 0) {

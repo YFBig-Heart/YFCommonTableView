@@ -1,5 +1,5 @@
 //
-//  YFUserCenterCell.h
+//  YFCommonTableCell.h
 //  CoolTennisBall
 //
 //  Created by Coollang on 16/8/25.
@@ -10,11 +10,11 @@
 
 #define kSeparationLineColor DefaultColor_Line
 
-@class YFUserItem;
+@class YFCommonTItem;
 
-@interface YFUserCenterCell : UITableViewCell
+@interface YFCommonTableCell : UITableViewCell
 
-@property (nonatomic, strong) YFUserItem *item;
+@property (nonatomic, strong) YFCommonTItem *item;
 
 // 创建cell,默认为Value1样式
 + (instancetype)settingViewCellTableView:(UITableView *)tableview;

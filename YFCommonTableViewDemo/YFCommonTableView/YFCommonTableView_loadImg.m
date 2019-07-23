@@ -6,7 +6,7 @@
 //  Copyright © 2018年 杨波. All rights reserved.
 //
 
-#import "YFLoadImgManager.h"
+#import "YFCommonTableView_loadImg.h"
 
 // The best order for path scale search.
 static NSArray *_NSBundlePreferredScales() {
@@ -33,12 +33,12 @@ static NSString *_NSStringByAppendingNameScale(NSString *string, CGFloat scale) 
 }
 
 
-@implementation YFLoadImgManager
+@implementation YFCommonTableView_loadImg
 
 + (NSBundle *)yf_ImageBrowserBundle {
     static NSBundle *imageBrowserBundle = nil;
     if (imageBrowserBundle == nil) {
-        NSBundle *bundle = [NSBundle bundleForClass:YFLoadImgManager.class];
+        NSBundle *bundle = [NSBundle bundleForClass:YFCommonTableView_loadImg.class];
         NSString *path = [bundle pathForResource:@"image" ofType:@"bundle"];
         imageBrowserBundle = [NSBundle bundleWithPath:path];
     }

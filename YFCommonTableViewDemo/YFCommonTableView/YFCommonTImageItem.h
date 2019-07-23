@@ -1,14 +1,14 @@
 //
-//  YFUserImageItem.h
+//  YFCommonTImageItem.h
 //  CoolTennisBall
 //
 //  Created by Coollang on 16/8/29.
 //  Copyright © 2016年 CoolLang. All rights reserved.
 //
 
-#import "YFUserItem.h"
+#import "YFCommonTItem.h"
 
-@interface YFUserImageItem : YFUserItem
+@interface YFCommonTImageItem : YFCommonTItem
 
 /** 图片 */
 @property (nonatomic, strong)UIImage *image;

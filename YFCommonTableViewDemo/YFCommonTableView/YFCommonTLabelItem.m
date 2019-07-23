@@ -1,18 +1,18 @@
 //
-//  YFUserLabelItem.m
+//  YFCommonTLabelItem.m
 //  CoolTennisBall
 //
 //  Created by Coollang on 16/8/29.
 //  Copyright © 2016年 CoolLang. All rights reserved.
 //
 
-#import "YFUserLabelItem.h"
+#import "YFCommonTLabelItem.h"
 
 
-@implementation YFUserLabelItem
+@implementation YFCommonTLabelItem
 + (instancetype)itemWithIcon:(NSString *)icon labelItemWithTitle:(NSString *)title andValue:(NSString *)labelText {
     
-    YFUserLabelItem *item = [YFUserLabelItem labelItemWithTitle:title andValue:labelText];
+    YFCommonTLabelItem *item = [YFCommonTLabelItem labelItemWithTitle:title andValue:labelText];
     
     item.icon = icon;
     
@@ -21,7 +21,7 @@
 
 + (instancetype)labelItemWithTitle:(NSString *)title andValue:(NSString *)labelText {
     
-    YFUserLabelItem *item = [YFUserLabelItem itemWithTitle:title];
+    YFCommonTLabelItem *item = [YFCommonTLabelItem itemWithTitle:title];
     item.labelText = labelText;
     
     return item;

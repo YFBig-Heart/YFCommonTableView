@@ -1,14 +1,14 @@
 //
-//  YFUserSaveItem.h
+//  YFCommonTSaveItem.h
 //  CoolTennisBall
 //
 //  Created by Coollang on 16/8/26.
 //  Copyright © 2016年 CoolLang. All rights reserved.
 //
 
-#import "YFUserItem.h"
+#import "YFCommonTItem.h"
 
-@interface YFUserSaveItem : YFUserItem
+@interface YFCommonTSaveItem : YFCommonTItem
 
 /** 是否选中*/
 @property (nonatomic, assign)BOOL isSelected;

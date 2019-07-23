@@ -1,23 +1,23 @@
 //
-//  YFCommonBaseController.m
+//  YFCommonBaseTableVc.m
 //  Petcome
 //
 //  Created by petcome on 2018/12/28.
 //  Copyright © 2018 yunfei. All rights reserved.
 //
 
-#import "YFCommonBaseController.h"
+#import "YFCommonBaseTableVc.h"
 #import "YFCommonTableView.h"
 
 #define kSectionHeadViewHeight 8
 
 #define kyfbgWhite_LightGrayBgColor [UIColor colorWithRed:((float)((0xEDF1F2 & 0xFF0000) >> 16))/255.0 green:((float)((0xEDF1F2 & 0xFF00) >> 8))/255.0 blue:((float)(0xEDF1F2 & 0xFF))/255.0 alpha:1.0]
 
-@interface YFCommonBaseController ()<UITableViewDelegate,UITableViewDataSource>
+@interface YFCommonBaseTableVc ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
 
-@implementation YFCommonBaseController
+@implementation YFCommonBaseTableVc
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,14 +43,14 @@
     return self.groups.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    YFUserGroup *group = self.groups[section];
+    YFCommonTGroup *group = self.groups[section];
     return group.items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    YFUserCenterCell *cell = [YFUserCenterCell settingViewCellTableView:tableView];
-    YFUserGroup *group = self.groups[indexPath.section];
-    YFUserItem *item = group.items[indexPath.row];
+    YFCommonTableCell *cell = [YFCommonTableCell settingViewCellTableView:tableView];
+    YFCommonTGroup *group = self.groups[indexPath.section];
+    YFCommonTItem *item = group.items[indexPath.row];
     cell.item = item;
     if (indexPath.row == group.items.count - 1) {
         [cell showSeparationBottomLine:NO];
@@ -64,8 +64,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     // 取出对应的模型数据
-    YFUserGroup *group = self.groups[indexPath.section];
-    YFUserItem *item = group.items[indexPath.row];
+    YFCommonTGroup *group = self.groups[indexPath.section];
+    YFCommonTItem *item = group.items[indexPath.row];
 
     // 2.判断有没有block,有的话就执行
     if (item.block) {
@@ -73,9 +73,9 @@
         return;
     }
     // 3.跳转
-    if ([item isKindOfClass:[YFUserArrowItem class]]) {
+    if ([item isKindOfClass:[YFCommonArrowItem class]]) {
         // 强转
-        YFUserArrowItem *arrowItem = (YFUserArrowItem *)item;
+        YFCommonArrowItem *arrowItem = (YFCommonArrowItem *)item;
         // 判断target是否有值
         if (arrowItem.target) {
             Class class = arrowItem.target;
@@ -94,7 +94,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    YFUserGroup *group = self.groups[section];
+    YFCommonTGroup *group = self.groups[section];
     if (group.headerTitle != nil) {
         UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, group.headHeight)];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, [UIScreen mainScreen].bounds.size.width - 20, headView.bounds.size.height)];
@@ -110,7 +110,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    YFUserGroup *group = self.groups[section];
+    YFCommonTGroup *group = self.groups[section];
     if (group.headHeight <= 0) {
         return kSectionHeadViewHeight;
     }else {

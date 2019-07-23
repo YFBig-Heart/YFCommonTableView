@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface YFLoadImgManager : NSObject
+@interface YFCommonTableView_loadImg : NSObject
 
 /**
  Get the default bundle.

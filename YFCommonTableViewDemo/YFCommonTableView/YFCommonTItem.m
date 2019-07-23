@@ -1,14 +1,14 @@
 //
-//  YFUserItem.m
+//  YFCommonTItem.m
 //  CoolTennisBall
 //
 //  Created by Coollang on 16/8/25.
 //  Copyright © 2016年 CoolLang. All rights reserved.
 //
 
-#import "YFUserItem.h"
+#import "YFCommonTItem.h"
 
-@implementation YFUserItem
+@implementation YFCommonTItem
 - (instancetype)initWithTitle:(NSString *)title {
     if (self = [super init]) {
         self.title = title;
@@ -34,7 +34,7 @@
 }
 
 + (instancetype)itemWithTitle:(NSString *)title andSubTitle:(NSString *)subTitle {
-    YFUserItem *item = [self itemWithIcon:nil andTitle:title];
+    YFCommonTItem *item = [self itemWithIcon:nil andTitle:title];
     item.subTitle = subTitle;
     return item;
 }
