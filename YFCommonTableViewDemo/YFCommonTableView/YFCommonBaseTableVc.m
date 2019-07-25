@@ -9,7 +9,7 @@
 #import "YFCommonBaseTableVc.h"
 #import "YFCommonTableView.h"
 
-#define kSectionHeadViewHeight 8
+
 
 #define kyfbgWhite_LightGrayBgColor [UIColor colorWithRed:((float)((0xEDF1F2 & 0xFF0000) >> 16))/255.0 green:((float)((0xEDF1F2 & 0xFF00) >> 8))/255.0 blue:((float)(0xEDF1F2 & 0xFF))/255.0 alpha:1.0]
 
@@ -95,14 +95,14 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     YFCommonTGroup *group = self.groups[section];
-    if (group.headerTitle != nil) {
+    if (group.headerTitle.length > 0) {
         UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, group.headHeight)];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, [UIScreen mainScreen].bounds.size.width - 20, headView.bounds.size.height)];
         label.font = [UIFont systemFontOfSize:12];
-        label.textColor = [UIColor colorWithRed:((float)((0xaaaaaa & 0xFF0000) >> 16))/255.0 green:((float)((0xaaaaaa & 0xFF00) >> 8))/255.0 blue:((float)(0xaaaaaa & 0xFF))/255.0 alpha:1.0];
+        label.textColor = group.headerTitleColor;
         label.text = group.headerTitle;
         [headView addSubview:label];
-        headView.backgroundColor = kyfbgWhite_LightGrayBgColor;
+        headView.backgroundColor = group.headerBgColor;
         return headView;
     }else {
         return [[UIView alloc] init];
@@ -111,13 +111,28 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     YFCommonTGroup *group = self.groups[section];
-    if (group.headHeight <= 0) {
-        return kSectionHeadViewHeight;
-    }else {
-        return group.headHeight;
-    }
+    return group.headHeight;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    YFCommonTGroup *group = self.groups[section];
+    if (group.footerTitle.length > 0 ) {
+        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, group.headHeight)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, [UIScreen mainScreen].bounds.size.width - 20, footerView.bounds.size.height)];
+        label.font = [UIFont systemFontOfSize:12];
+        label.textColor = group.footerTitleColor;
+        label.text = group.footerTitle;
+        [footerView addSubview:label];
+        footerView.backgroundColor = group.footerBgColor;
+        return footerView;
+    }else {
+        return [[UIView alloc] init];
+    }
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    YFCommonTGroup *group = self.groups[section];
+    return group.footHeight;
+}
 
 #pragma mark - setter & getter
 - (NSMutableArray *)groups {

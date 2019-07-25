@@ -22,6 +22,7 @@ typedef enum : NSUInteger {
 /** title颜色 默认0x434053 */
 @property (nonatomic,strong)UIColor *titleColor;
 
+
 /** 详细标题 */
 @property (nonatomic, copy)NSString *subTitle;
 

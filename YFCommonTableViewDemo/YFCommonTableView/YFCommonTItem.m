@@ -9,6 +9,7 @@
 #import "YFCommonTItem.h"
 
 @implementation YFCommonTItem
+
 - (instancetype)initWithTitle:(NSString *)title {
     if (self = [super init]) {
         self.title = title;
