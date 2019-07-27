@@ -37,6 +37,9 @@
 /** 底部分割线偏移量的高度： default=0.5*/
 @property (nonatomic, assign)CGFloat separationBottomLineHeight;
 
+// 是否禁用下面的偏移量,YES--不启用，NO-不禁用
+@property (nonatomic,assign)BOOL forbiddenOffset;
+
 /** textLabel上下偏移：正数向上偏移，负数向下偏移 */
 @property (nonatomic, assign)CGFloat textLabelVOffset;
 /** textLabel左右偏移：正数向右偏移，负数向左偏移*/

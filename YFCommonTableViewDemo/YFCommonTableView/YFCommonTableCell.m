@@ -308,6 +308,9 @@
 }
 
 - (void)adjustUI {
+    if (self.forbiddenOffset) {
+        return;
+    }
     self.bottomLineView.height = (self.separationBottomLineHeight <= 0 || self.separationBottomLineHeight > self.height) ? 0.5:self.separationBottomLineHeight;
     
     if (![NSStringFromUIEdgeInsets(_separationBottomLinerightOffset) isEqualToString:NSStringFromUIEdgeInsets(UIEdgeInsetsZero)]) {
