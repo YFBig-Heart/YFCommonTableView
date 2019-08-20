@@ -15,6 +15,7 @@
         self.title = title;
         self.titleColor = [UIColor colorWithRed:((float)((0x141414 & 0xFF0000) >> 16))/255.0 green:((float)((0x141414 & 0xFF00) >> 8))/255.0 blue:((float)(0x141414 & 0xFF))/255.0 alpha:1.0];
         self.subTitleColor = [UIColor darkTextColor];
+        self.cellStyle = UITableViewCellStyleValue1;
     }
     return self;
 }

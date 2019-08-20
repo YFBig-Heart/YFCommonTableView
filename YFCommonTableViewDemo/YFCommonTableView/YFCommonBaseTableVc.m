@@ -48,9 +48,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    YFCommonTableCell *cell = [YFCommonTableCell settingViewCellTableView:tableView];
+
     YFCommonTGroup *group = self.groups[indexPath.section];
     YFCommonTItem *item = group.items[indexPath.row];
+    YFCommonTableCell *cell = [YFCommonTableCell settingViewCellTableView:tableView withStyle:item.cellStyle];
     cell.item = item;
     if (indexPath.row == group.items.count - 1) {
         [cell showSeparationBottomLine:NO];

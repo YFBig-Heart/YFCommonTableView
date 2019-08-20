@@ -22,13 +22,14 @@ typedef enum : NSUInteger {
 /** title颜色 默认0x434053 */
 @property (nonatomic,strong)UIColor *titleColor;
 
-
 /** 详细标题 */
 @property (nonatomic, copy)NSString *subTitle;
 
 /** subTitle 颜色 默认0x434053 */
 @property (nonatomic,strong)UIColor *subTitleColor;
 
+/** cell 的样式,默认Value1 */
+@property (nonatomic,assign)UITableViewCellStyle cellStyle;
 
 #pragma mark - 附加
 /** 失效状态 */
@@ -38,7 +39,6 @@ typedef enum : NSUInteger {
 
 /** 用来搭载一些值 */
 @property (nonatomic, strong) id argument;
-
 
 
 /**
