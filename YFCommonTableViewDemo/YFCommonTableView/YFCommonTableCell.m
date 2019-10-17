@@ -65,11 +65,11 @@
 + (instancetype)settingViewCellTableView:(UITableView *)tableview withStyle:(UITableViewCellStyle)style {
     static NSString *ID = @"setting";
     YFCommonTableCell *cell = [tableview dequeueReusableCellWithIdentifier:ID];
-    
+
     if (cell == nil) {
         cell = [[YFCommonTableCell alloc] initWithStyle:style reuseIdentifier:ID];
     }
-    
+
     return cell;
 }
 
@@ -82,12 +82,12 @@
     self.textLabel.textColor = _item.titleColor;
     self.textLabel.font = [UIFont pingFangSCFont:PingFangSCMedium size:14];
     self.backgroundColor = [UIColor whiteColor];
-    
+
     self.detailTextLabel.textColor = _item.subTitleColor;
     self.detailTextLabel.font =  [UIFont pingFangSCFont:PingFangSCRegular size:14];
     self.textLabel.numberOfLines = 0;
     self.detailTextLabel.numberOfLines = 0;
-    
+
     if (_item.cellState == kCellStateUnenable) {
         self.imageView.image = [YFCommonTableCell image:[UIImage imageNamed:_item.icon] WithTintColor:[UIColor grayColor] blendMode:kCGBlendModeSoftLight alpha:1.0];
         self.textLabel.textColor = [UIColor grayColor];
@@ -110,10 +110,10 @@
     }
     // 如果是开关就设置成不能被选中
     self.selectionStyle = [item isKindOfClass:[YFCommonTLabelItem class]] ? UITableViewCellSelectionStyleNone : UITableViewCellSelectionStyleDefault;
-   
+
     self.textLabel.text = item.title;
     self.detailTextLabel.text = item.subTitle;
-    
+
     if ([item isKindOfClass:[YFCommonArrowItem class]]) {
         _accessoryArrow.hidden = NO;
         self.accessoryView = [self accessoryArrow];
@@ -145,7 +145,7 @@
             _accessoryLabel = nil;
         }
     }
-    
+
     if ([item isKindOfClass:[YFCommonTImageItem class]]){
         [self rightImageView];
         YFCommonTImageItem *itemImage = (YFCommonTImageItem *)item;
@@ -209,7 +209,7 @@
             if ([itemSave.selectImageName isEqualToString:@"login_unselect_dot"]) {
                 self.selectImageView.image = [YFCommonTableView_loadImg yf_getImageWithName:itemSave.unSelectImageName];
             }else {
-               self.selectImageView.image = [UIImage imageNamed:itemSave.unSelectImageName];
+                self.selectImageView.image = [UIImage imageNamed:itemSave.unSelectImageName];
             }
         }
     }
@@ -223,9 +223,9 @@
 }
 
 - (void)dealloc {
-//    YFLog(@"YFCommonTableCellDealloc");
+    //    YFLog(@"YFCommonTableCellDealloc");
     if ([self.item isKindOfClass:[YFCommonTSaveItem class]]) {
-       [self.item removeObserver:self forKeyPath:@"isSelected"];
+        [self.item removeObserver:self forKeyPath:@"isSelected"];
     }
 }
 
@@ -279,7 +279,7 @@
 
     _accessoryLabel.right = 16;
     _accessoryLabel.centerY = self.contentView.centerY;
-    
+
     self.bottomLineView.top = self.bounds.size.height - 1;
     // 设置分隔线的frame
     if (self.item.icon) {
@@ -287,7 +287,7 @@
     }else {
         self.lineView.left = self.textLabel.left;
     }
-    
+
     self.lineView.top = self.bounds.size.height - 1;
     self.lineView.width = self.bounds.size.width;
     self.lineView.height = 1;
@@ -312,19 +312,19 @@
         return;
     }
     self.bottomLineView.height = (self.separationBottomLineHeight <= 0 || self.separationBottomLineHeight > self.height) ? 0.5:self.separationBottomLineHeight;
-    
+
     if (![NSStringFromUIEdgeInsets(_separationBottomLinerightOffset) isEqualToString:NSStringFromUIEdgeInsets(UIEdgeInsetsZero)]) {
         self.bottomLineView.left= self.bottomLineView.left+ self.separationBottomLinerightOffset.left;
         self.bottomLineView.width = (self.bottomLineView.width - self.separationBottomLinerightOffset.right);
         self.bottomLineView.left= self.bottomLineView.left+ self.separationBottomLinerightOffset.left;
         self.bottomLineView.top = self.bottomLineView.top + self.separationBottomLinerightOffset.top - self.separationBottomLinerightOffset.bottom;
     }
-    
+
     self.textLabel.top -= self.textLabelVOffset;
     self.detailTextLabel.top -= self.detailLabelVOffset;
     self.textLabel.left+= self.textLabelHOffset;
     self.detailTextLabel.left+= self.detailLabelHOffset;
-    
+
 }
 
 

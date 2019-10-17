@@ -144,9 +144,9 @@
 }
 - (UITableView *)tableView {
     if (_tableView == nil) {
-        self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-        [self.view addSubview:self.tableView];
-        self.tableView.frame = self.view.bounds;
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        [self.view addSubview:_tableView];
+        _tableView.frame = self.view.bounds;
     }
     return _tableView;
 }

@@ -31,6 +31,8 @@ typedef enum : NSUInteger {
 /** cell 的样式,默认Value1 */
 @property (nonatomic,assign)UITableViewCellStyle cellStyle;
 
+
+
 #pragma mark - 附加
 /** 失效状态 */
 @property (nonatomic, assign) kCellState cellState;
